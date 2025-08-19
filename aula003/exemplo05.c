@@ -14,9 +14,14 @@ int main(){
     float Saldo;
     char Nome[50];
 
-    fscanf(fp, "%d %f %s\n", &Conta, &Saldo, Nome);
+    for(int i = 0; i < 4; i++){
+    fscanf(fp, "%d %f %[^\n]\n", &Conta, &Saldo, Nome); //"%[^\n]" = lê até o \n 
     printf("%d\t%.2f\t\t%s\n", Conta, Saldo, Nome);
+    }
 
     fclose(fp);
     return 0; 
 }
+
+
+// %[^] = lê até... 
