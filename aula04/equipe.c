@@ -5,9 +5,11 @@
 
 #include "equipe.h"
 
-Time * LerDados(char  * Arquivo){
+// Recebe NomeArquivo como parâmetro e retorna vetor de Equipes
 
-    printf("Arquivo a ser aberto: %s\n", Arquivo);
+Time * LerDados(char * Arquivo){
+
+    printf("Arquivo a ser aberto: %s\n\n", Arquivo);
 
     Time * X = malloc(20 * sizeof(Time));
     if (X == NULL){
@@ -40,4 +42,26 @@ Time * LerDados(char  * Arquivo){
     fclose(fp);
 
     return X;
+}
+
+int getPontos(Time * T, int Posicao){
+    
+    int i;
+    for (i = 0; i < 20; i++)
+        if(T[i].Pos == Posicao); 
+            return T[i].Pontos; 
+
+    return ERRO; 
+
+}
+
+float getAproveitamento(Time * T, char * Nome){
+
+    int i;
+
+    for(i = 0; i < 20; i++)
+        if(strcmp(T[i].Equipe, Nome) == 0)
+            return T[i].Aproveitamento;
+
+    return ERRO;
 }
